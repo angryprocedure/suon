@@ -1,0 +1,157 @@
+<!doctype html>
+<!-- 동해안 수온 웹페이지 원본. publish.py 가 {{...}} 를 채워 GitHub Pages 에 올림 (직접 열면 자리표시가 그대로 보임)
+     화면은 수온 이미지가 중심 (요약/출처/제작은 이미지에 있음). 이미지 아래 접힌 '지점별 수온' 목록은 검색엔진이 읽을 글 겸 텍스트 보기 -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>바다수온 - 동해안 실시간 수온 (서프루어·낚시)</title>
+<meta name="description" content="11/15 00:15 기준 동해안 수온 · 강원 16.4° · 경북 17.7° · 14물 · 고성~울산항 20곳 지점별 수온·파고·바람">
+<link rel="canonical" href="https://suon.angryprocedure.com/">
+<meta name="google-site-verification" content="ZGw9CkGIPUwsN8pk90GjmtP-8uLXxSNc_HUWf5w12uw">
+<meta name="naver-site-verification" content="77a350ed66578bcf5b2b3f30f62afaee97b09731">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="바다수온">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="바다수온 - 동해안 실시간 수온 (서프루어·낚시)">
+<meta property="og:description" content="11/15 00:15 기준 동해안 수온 · 강원 16.4° · 경북 17.7° · 14물 · 고성~울산항 20곳 지점별 수온·파고·바람">
+<meta property="og:url" content="https://suon.angryprocedure.com/">
+<meta property="og:image" content="https://suon.angryprocedure.com/suon_map.png?v=202611150015">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light">
+<!-- 사이트 아이콘: 폰 홈 화면/북마크는 PNG 를 씀 (make_icons.py 로 만든 파일, publish.py 가 함께 게시) -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff6b4a'/%3E%3Cpath d='M10 36c6-6 10-6 16 0s10 6 16 0 10-6 12-2' stroke='%23fff' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<!-- 아이폰: 기기별 크기 (Safari 즐겨찾기/홈 화면). 크기 없는 apple-touch-icon.png 은 기본값 -->
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #ffffff; color: #17405c; }
+  body { font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; -webkit-text-size-adjust: 100%; }
+  main { max-width: 640px; margin: 0 auto; padding: 16px 0 24px; }
+  h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }   /* 화면에는 안 보이고 검색/화면낭독용 */
+  .map { display: block; border-radius: 14px; overflow: hidden; border: 1px solid #dee8f0; }
+  .map img { display: block; width: 100%; height: auto; }
+
+  /* 이미지 아래 안내 문구 (작은 회색, 줄마다 문단) */
+  .notice { margin: 14px 0 0; font-size: 13px; line-height: 1.7; color: #78969f; word-break: keep-all; }
+  .notice p { margin: 0; }
+
+  /* 이미지 아래 접힌 지점별 수온 목록 */
+  details { margin: 14px 0 0; border: 1px solid #dee8f0; border-radius: 14px; background: #f7fafc; }
+  summary { cursor: pointer; padding: 12px 16px; font-size: 15px; font-weight: 700; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "펼치기"; float: right; font-weight: 400; font-size: 13px; color: #78969f; }
+  details[open] summary::after { content: "접기"; }
+  summary small { font-weight: 400; color: #78969f; margin-left: 4px; }
+  ul { list-style: none; margin: 0; padding: 0 16px 6px; }
+  li { padding: 9px 0; border-top: 1px solid #e6eef4; }
+  .row { display: flex; align-items: baseline; gap: 8px; font-size: 16px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; align-self: center; }
+  .temp { margin-left: auto; font-weight: 700; font-size: 17px; }
+  .dep { font-weight: 400; font-size: 12px; color: #78969f; margin-left: 2px; }
+  .sub { margin: 2px 0 0 18px; font-size: 13px; line-height: 1.5; color: #5f7d89; word-break: keep-all; }
+  .src { margin: 0; padding: 4px 16px 14px; font-size: 12px; color: #78969f; }
+
+  /* 폰: 이미지를 화면 폭 끝까지 (이미지 안에 좌우 여백이 있으므로 테두리/여백 없이 글씨를 최대한 크게) */
+  @media (max-width: 640px) {
+    main { padding: 0 0 20px; }
+    .map { border: 0; border-radius: 0; }
+    .notice, details { margin: 12px 16px 0; }
+  }
+
+  /* 당겨서 새로고침 안내 (홈 화면 앱에서만, 평소엔 화면 위로 숨김) */
+  .ptr { position: fixed; top: 0; left: 0; right: 0; z-index: 10; text-align: center; pointer-events: none;
+         padding: calc(env(safe-area-inset-top) + 10px) 0 10px; font-size: 13px; color: #5f7d89;
+         background: rgba(255, 255, 255, .92); transform: translateY(-100%); transition: transform .2s; }
+  .ptr.drag { transition: none; }
+</style>
+</head>
+<body>
+<div class="ptr" id="ptr" aria-hidden="true">↓ 당겨서 새로고침</div>
+<main>
+  <h1>바다수온 - 동해안 실시간 수온 (서프루어·낚시) (11/15 00:15 기준)</h1>
+  <a class="map" href="suon_map.png?v=202611150015" title="원본 크기로 보기"><img src="suon_map.png?v=202611150015" width="896" height="2704" alt="11/15 00:15 기준 동해안 수온 · 강원 16.4° · 경북 17.7° · 14물 · 고성~울산항 20곳 지점별 수온·파고·바람. 지점별 수온, 수심별 수온, 풍향풍속, 기온, 강수"></a>
+
+  <div class="notice">
+    <p>동해안 바다 수온과 파고, 물때, 일출·일몰, 날씨, 기온, 바람, 강수량을 한 장에 모아 매시간 업데이트합니다.</p>
+  </div>
+
+  <details>
+    <summary>지점별 수온 보기<small>20곳 · 11/15 00:15 기준</small></summary>
+    <ul><li><div class="row"><span class="dot" style="background:#48aade"></span><b>고성 가진항</b><span class="temp">14.3° <span class="dep">5m</span></span></div><div class="sub">10m 14.2° · 서풍 1.5m/s · 기온 10.4° · 강수 0.5mm · 국립수산과학원 00:00</div></li><li><div class="row"><span class="dot" style="background:#52c3ce"></span><b>속초 동명항</b><span class="temp">16.8°</span></div><div class="sub">서남서풍 0.9m/s · 기온 11.0° · 국립해양조사원 00:12</div></li><li><div class="row"><span class="dot" style="background:#48aede"></span><b>속초해변</b><span class="temp">14.6°</span></div><div class="sub">파고 0.8m (4.73초) · 서북서풍 4.6m/s · 기온 11.0° · 국립해양조사원 00:05</div></li><li><div class="row"><span class="dot" style="background:#50c2d0"></span><b>낙산해변</b><span class="temp">16.7°</span></div><div class="sub">파고 0.8m (4.97초) · 남서풍 1.5m/s · 기온 11.0° · 국립해양조사원 00:05</div></li><li><div class="row"><span class="dot" style="background:#59c7c4"></span><b>양양 수산항</b><span class="temp">17.4° <span class="dep">5m</span></span></div><div class="sub">15m 14.8° · 25m 9.4° · 서풍 1.9m/s · 기온 10.5° · 국립수산과학원 00:00</div></li><li><div class="row"><span class="dot" style="background:#5fcabc"></span><b>경포대</b><span class="temp">17.9°</span></div><div class="sub">파고 0.6m (4.42초) · 남서풍 4.3m/s · 기온 10.5° · 강수 0.2mm · 국립해양조사원 00:05</div></li><li><div class="row"><span class="dot" style="background:#5ecabe"></span><b>강릉 송정</b><span class="temp">17.8° <span class="dep">5m</span></span></div><div class="sub">20m 9.2° · 30m 5.9° · 남서풍 2.0m/s · 기온 10.5° · 강수 0.2mm · 국립수산과학원 00:00</div></li><li><div class="row"><span class="dot" style="background:#4fc2d1"></span><b>망상해변</b><span class="temp">16.6°</span></div><div class="sub">파고 0.7m (4.29초) · 서북서풍 5.1m/s · 기온 10.0° · 강수 0.5mm · 국립해양조사원 00:05</div></li><li><div class="row"><span class="dot" style="background:#4abfd8"></span><b>묵호항</b><span class="temp">16.2°</span></div><div class="sub">북서풍 3.3m/s · 기온 10.9° · 강수 0.1mm · 국립해양조사원 00:11</div></li><li><div class="row"><span class="dot" style="background:#4abfd8"></span><b>삼척 장호항</b><span class="temp">16.2° <span class="dep">5m</span></span></div><div class="sub">15m 13.7° · 25m 8.5° · 남동풍 1.3m/s · 기온 11.1° · 강수 0.5mm · 국립수산과학원 00:00</div></li><li><div class="row"><span class="dot" style="background:#62cbb9"></span><b>울진 죽변</b><span class="temp">18.1° <span class="dep">표층</span></span></div><div class="sub">5m 17.6° · 10m 18.1° · 북풍 3.3m/s · 기온 12.3° · 경북어업기술원 23:52</div></li><li><div class="row"><span class="dot" style="background:#5cc8c0"></span><b>울진 후포</b><span class="temp">17.6° <span class="dep">표층</span></span></div><div class="sub">5m 17.7° · 10m 17.5° · 경북어업기술원 00:00</div></li><li><div class="row"><span class="dot" style="background:#60cabc"></span><b>울진 후포항</b><span class="temp">17.9°</span></div><div class="sub">북서풍 0.6m/s · 국립해양조사원 00:11</div></li><li><div class="row"><span class="dot" style="background:#63ccb8"></span><b>고래불</b><span class="temp">18.2°</span></div><div class="sub">파고 0.5m (3.56초) · 북풍 5.1m/s · 기온 11.6° · 강수 0.4mm · 국립해양조사원 00:05</div></li><li><div class="row"><span class="dot" style="background:#62ccb8"></span><b>영덕 덕천</b><span class="temp">18.1° <span class="dep">5m</span></span></div><div class="sub">20m 17.5° · 30m 14.6° · 북동풍 0.1m/s · 기온 11.6° · 강수 0.4mm · 국립수산과학원 00:00</div></li><li><div class="row"><span class="dot" style="background:#5ac7c3"></span><b>영덕 구계</b><span class="temp">17.4° <span class="dep">표층</span></span></div><div class="sub">5m 17.7° · 10m 18.0° · 서풍 0.1m/s · 기온 11.8° · 강수 0.5mm · 경북어업기술원 00:07</div></li><li><div class="row"><span class="dot" style="background:#5dc9bf"></span><b>포항 청하</b><span class="temp">17.7° <span class="dep">표층</span></span></div><div class="sub">5m 17.7° · 10m 17.7° · 동풍 1.2m/s · 기온 12.3° · 강수 0.5mm · 경북어업기술원 23:51</div></li><li><div class="row"><span class="dot" style="background:#4fc2d1"></span><b>포항 강사</b><span class="temp">16.6° <span class="dep">표층</span></span></div><div class="sub">5m 16.7° · 10m 16.6° · 동풍 3.7m/s · 기온 14.3° · 강수 0.5mm · 경북어업기술원 00:02</div></li><li><div class="row"><span class="dot" style="background:#5dc9c0"></span><b>경주 감포</b><span class="temp">17.7° <span class="dep">표층</span></span></div><div class="sub">5m 17.8° · 10m 17.7° · 북서풍 2.5m/s · 기온 13.0° · 강수 1mm · 경북어업기술원 00:06</div></li><li><div class="row"><span class="dot" style="background:#62ccb8"></span><b>울산항</b><span class="temp">18.1°</span></div><div class="sub">북북서풍 1.9m/s · 기온 13.3° · 강수 2mm · 국립해양조사원 00:11</div></li></ul>
+    <p class="src">자료: 국립수산과학원 · 국립해양조사원 · 경북어업기술원 · 기상청</p>
+  </details>
+</main>
+<script>
+  // 방문 분석: Cloudflare Web Analytics (publish.ini [SITE] CloudflareToken 이 있을 때만, 쿠키 없음)
+  // 아래 30분 자동 새로고침으로 다시 열린 경우는 방문으로 세지 않음
+  (function () {
+    var token = "1ced23694aa24f5696cb9b9f276cf171", auto = false;
+    try { auto = sessionStorage.getItem("autoReload") === "1"; sessionStorage.removeItem("autoReload"); } catch (e) {}
+    if (!token || auto) return;
+    var s = document.createElement("script");   // Cloudflare 안내 스니펫과 같은 형태 (type=module, data-cf-beacon)
+    s.type = "module";
+    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    s.setAttribute("data-cf-beacon", JSON.stringify({ token: token }));
+    document.body.appendChild(s);
+  })();
+  // 페이지를 켜 둔 채 30분이 지나면 새로고침 (새 자료는 매시간 15분). 목록을 펼쳐 보는 중이면 넘어감
+  setTimeout(function () {
+    if (document.hidden || document.querySelector("details[open]")) return;
+    try { sessionStorage.setItem("autoReload", "1"); } catch (e) {}
+    location.reload();
+  }, 30 * 60000);
+
+  // A. 다시 돌아오면 새로고침: 홈 화면 앱/탭으로 돌아왔을 때 불러온 지 5분이 넘었으면 최신 이미지로
+  //    (아이폰은 닫았던 앱도 이전 화면을 그대로 보여 줌. 사람이 여는 것이라 방문으로 셈)
+  (function () {
+    var loaded = Date.now(), STALE = 5 * 60000;
+    function check() { if (!document.hidden && Date.now() - loaded > STALE) location.reload(); }
+    document.addEventListener("visibilitychange", check);
+    window.addEventListener("pageshow", function (e) { if (e.persisted) check(); });
+  })();
+
+  // B. 당겨서 새로고침: 홈 화면 앱(주소창 없음)에서만. 브라우저에는 원래 기능이 있어 겹치지 않게 뺌
+  (function () {
+    var app = window.navigator.standalone === true ||
+              (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+    if (!app) return;
+    var bar = document.getElementById("ptr"), START = null, dy = 0, NEED = 70;
+    window.addEventListener("touchstart", function (e) {
+      START = (window.scrollY <= 0 && e.touches.length === 1) ? e.touches[0].clientY : null; dy = 0;   // 맨 위에서 시작할 때만
+    }, { passive: true });
+    window.addEventListener("touchmove", function (e) {
+      if (START === null) return;
+      dy = e.touches[0].clientY - START;
+      if (dy <= 0) { bar.className = "ptr"; bar.style.transform = ""; return; }
+      var p = Math.min(dy, NEED * 1.5);
+      bar.className = "ptr drag";
+      bar.style.transform = "translateY(" + (p - bar.offsetHeight) + "px)";
+      bar.textContent = dy >= NEED ? "↻ 놓으면 새로고침" : "↓ 당겨서 새로고침";
+    }, { passive: true });
+    window.addEventListener("touchend", function () {
+      if (START !== null && dy >= NEED) { bar.textContent = "새로고침 중..."; bar.className = "ptr"; bar.style.transform = "translateY(0)"; location.reload(); }
+      else { bar.className = "ptr"; bar.style.transform = ""; }
+      START = null; dy = 0;
+    });
+  })();
+</script>
+</body>
+</html>

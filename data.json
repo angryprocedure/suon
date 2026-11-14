@@ -1,0 +1,425 @@
+{
+ "updated": "2026-11-15T00:15:14+09:00",
+ "basis": "11/15 00:15",
+ "avg": "17.06",
+ "gangwon": "16.44",
+ "gyeongbuk": "17.68",
+ "tide": "14물(죽는물때)",
+ "waves": [
+  {
+   "name": "낙산",
+   "height": 0.8
+  },
+  {
+   "name": "고래불",
+   "height": 0.5
+  }
+ ],
+ "sun": [
+  {
+   "area": "속초",
+   "rise": "07:07",
+   "set": "17:13"
+  },
+  {
+   "area": "울진",
+   "rise": "07:01",
+   "set": "17:12"
+  }
+ ],
+ "header": [
+  "11/15일 00:15분 평균수온: 17.06(℃)",
+  "강원 16.44(℃) / 경북 17.68(℃)",
+  "동해물때: 14물(죽는물때)",
+  "파고: 낙산(0.8m) 고래불(0.5m)",
+  "일출 07:07 일몰 17:13 (속초)",
+  "일출 07:01 일몰 17:12 (울진)"
+ ],
+ "stations": [
+  {
+   "src": "수",
+   "name": "고성 가진항",
+   "temps": [
+    14.3,
+    14.2
+   ],
+   "depth": [
+    "5m",
+    "10m",
+    "28m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "→→",
+   "wind_speed": 1.5,
+   "air": "10.4",
+   "rain": 0.5,
+   "time": "00:00",
+   "sky": "rain"
+  },
+  {
+   "src": "해",
+   "name": "속초 동명항",
+   "temps": [
+    16.8
+   ],
+   "depth": null,
+   "wave": "",
+   "period": "",
+   "wind_dir": "↗→",
+   "wind_speed": 0.9,
+   "air": "11.0",
+   "rain": 0.0,
+   "time": "00:12",
+   "sky": "cloud"
+  },
+  {
+   "src": "해",
+   "name": "속초해변",
+   "temps": [
+    14.61
+   ],
+   "depth": null,
+   "wave": "0.8",
+   "period": "4.73",
+   "wind_dir": "↘→",
+   "wind_speed": 4.6,
+   "air": "11.0",
+   "rain": 0.0,
+   "time": "00:05",
+   "sky": "cloud"
+  },
+  {
+   "src": "해",
+   "name": "낙산해변",
+   "temps": [
+    16.68
+   ],
+   "depth": null,
+   "wave": "0.8",
+   "period": "4.97",
+   "wind_dir": "↗↗",
+   "wind_speed": 1.5,
+   "air": "11.0",
+   "rain": 0.0,
+   "time": "00:05",
+   "sky": "cloud"
+  },
+  {
+   "src": "수",
+   "name": "양양 수산항",
+   "temps": [
+    17.4,
+    14.8,
+    9.4
+   ],
+   "depth": [
+    "5m",
+    "15m",
+    "25m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "→→",
+   "wind_speed": 1.9,
+   "air": "10.5",
+   "rain": 0.0,
+   "time": "00:00",
+   "sky": "many"
+  },
+  {
+   "src": "해",
+   "name": "경포대",
+   "temps": [
+    17.88
+   ],
+   "depth": null,
+   "wave": "0.6",
+   "period": "4.42",
+   "wind_dir": "↗↗",
+   "wind_speed": 4.3,
+   "air": "10.5",
+   "rain": 0.2,
+   "time": "00:05",
+   "sky": "rain"
+  },
+  {
+   "src": "수",
+   "name": "강릉 송정",
+   "temps": [
+    17.8,
+    9.2,
+    5.9
+   ],
+   "depth": [
+    "5m",
+    "20m",
+    "30m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "↗↗",
+   "wind_speed": 2.0,
+   "air": "10.5",
+   "rain": 0.2,
+   "time": "00:00",
+   "sky": "rain"
+  },
+  {
+   "src": "해",
+   "name": "망상해변",
+   "temps": [
+    16.63
+   ],
+   "depth": null,
+   "wave": "0.7",
+   "period": "4.29",
+   "wind_dir": "↘→",
+   "wind_speed": 5.1,
+   "air": "10.0",
+   "rain": 0.5,
+   "time": "00:05",
+   "sky": "rain"
+  },
+  {
+   "src": "해",
+   "name": "묵호항",
+   "temps": [
+    16.2
+   ],
+   "depth": null,
+   "wave": "",
+   "period": "",
+   "wind_dir": "↘↘",
+   "wind_speed": 3.3,
+   "air": "10.9",
+   "rain": 0.1,
+   "time": "00:11",
+   "sky": "rain"
+  },
+  {
+   "src": "수",
+   "name": "삼척 장호항",
+   "temps": [
+    16.2,
+    13.7,
+    8.5
+   ],
+   "depth": [
+    "5m",
+    "15m",
+    "25m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "↖↖",
+   "wind_speed": 1.3,
+   "air": "11.1",
+   "rain": 0.5,
+   "time": "00:00",
+   "sky": "rain"
+  },
+  {
+   "src": "경",
+   "name": "울진 죽변",
+   "temps": [
+    18.06,
+    17.56,
+    18.06
+   ],
+   "depth": [
+    "표층",
+    "5m",
+    "10m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "↓↓",
+   "wind_speed": 3.3,
+   "air": "12.3",
+   "rain": 0.0,
+   "time": "23:52",
+   "sky": "cloud"
+  },
+  {
+   "src": "경",
+   "name": "울진 후포",
+   "temps": [
+    17.62,
+    17.69,
+    17.5
+   ],
+   "depth": [
+    "표층",
+    "5m",
+    "10m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "",
+   "wind_speed": 0.0,
+   "air": "",
+   "rain": 0.0,
+   "time": "00:00",
+   "sky": ""
+  },
+  {
+   "src": "해",
+   "name": "울진 후포항",
+   "temps": [
+    17.9
+   ],
+   "depth": null,
+   "wave": "",
+   "period": "",
+   "wind_dir": "↘↘",
+   "wind_speed": 0.6,
+   "air": "",
+   "rain": 0.0,
+   "time": "00:11",
+   "sky": ""
+  },
+  {
+   "src": "해",
+   "name": "고래불",
+   "temps": [
+    18.16
+   ],
+   "depth": null,
+   "wave": "0.5",
+   "period": "3.56",
+   "wind_dir": "↓↓",
+   "wind_speed": 5.1,
+   "air": "11.6",
+   "rain": 0.4,
+   "time": "00:05",
+   "sky": "rain"
+  },
+  {
+   "src": "수",
+   "name": "영덕 덕천",
+   "temps": [
+    18.1,
+    17.5,
+    14.6
+   ],
+   "depth": [
+    "5m",
+    "20m",
+    "30m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "↙↙",
+   "wind_speed": 0.1,
+   "air": "11.6",
+   "rain": 0.4,
+   "time": "00:00",
+   "sky": "rain"
+  },
+  {
+   "src": "경",
+   "name": "영덕 구계",
+   "temps": [
+    17.44,
+    17.69,
+    18.0
+   ],
+   "depth": [
+    "표층",
+    "5m",
+    "10m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "→→",
+   "wind_speed": 0.1,
+   "air": "11.8",
+   "rain": 0.5,
+   "time": "00:07",
+   "sky": "rain"
+  },
+  {
+   "src": "경",
+   "name": "포항 청하",
+   "temps": [
+    17.69,
+    17.69,
+    17.69
+   ],
+   "depth": [
+    "표층",
+    "5m",
+    "10m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "←←",
+   "wind_speed": 1.2,
+   "air": "12.3",
+   "rain": 0.5,
+   "time": "23:51",
+   "sky": "rain"
+  },
+  {
+   "src": "경",
+   "name": "포항 강사",
+   "temps": [
+    16.63,
+    16.69,
+    16.62
+   ],
+   "depth": [
+    "표층",
+    "5m",
+    "10m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "←←",
+   "wind_speed": 3.7,
+   "air": "14.3",
+   "rain": 0.5,
+   "time": "00:02",
+   "sky": "rain"
+  },
+  {
+   "src": "경",
+   "name": "경주 감포",
+   "temps": [
+    17.68,
+    17.8,
+    17.68
+   ],
+   "depth": [
+    "표층",
+    "5m",
+    "10m"
+   ],
+   "wave": "",
+   "period": "",
+   "wind_dir": "↘↘",
+   "wind_speed": 2.5,
+   "air": "13.0",
+   "rain": 1.0,
+   "time": "00:06",
+   "sky": "rain"
+  },
+  {
+   "src": "해",
+   "name": "울산항",
+   "temps": [
+    18.1
+   ],
+   "depth": null,
+   "wave": "",
+   "period": "",
+   "wind_dir": "↘↓",
+   "wind_speed": 1.9,
+   "air": "13.3",
+   "rain": 2.0,
+   "time": "00:11",
+   "sky": "rain"
+  }
+ ]
+}
